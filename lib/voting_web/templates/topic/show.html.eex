@@ -1,0 +1,19 @@
+<h1>Show Topic</h1>
+
+<h1>Title</h1>
+    <strong>Title:</strong>
+    <%= @topic.title %>
+  
+  <h3>Posts</h3>
+  <table>
+  <tr><th>Post Title</th><th>Score</th></tr>
+    <%= for post <- @topic.posts do %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.score %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<span><%= link "Edit", to: Routes.topic_path(@conn, :edit, @topic) %></span>
+<span><%= link "Back", to: Routes.topic_path(@conn, :index) %></span>
